@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>內容收集器 - 側欄</title>
+    <style>
+        body { 
+            font-family: Arial, 'Microsoft JhengHei', sans-serif; 
+            width: 300px;
+            padding: 10px;
+        }
+        .item { 
+            margin-bottom: 20px; 
+            border: 1px solid #ddd; 
+            padding: 10px; 
+            position: relative;
+        }
+        .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        .delete-btn:hover {
+            background-color: #ff0000;
+        }
+        .item-content {
+            margin-top: 10px;
+            word-break: break-all;
+        }
+        .item-content img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+        .item-timestamp {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+        #open-admin {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        #open-admin:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <button id="open-admin">進入後台管理</button>
+    <h2>儲存的內容</h2>
+    <div id="items-container"></div>
+    <script src="sidepanel.js"></script>
+</body>
+</html>

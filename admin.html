@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>內容收集器 - 後台管理</title>
+    <style>
+        body {
+            font-family: Arial, 'Microsoft JhengHei', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .action-btn {
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 3px;
+            color: white;
+        }
+        .edit-btn { background-color: #4CAF50; }
+        .delete-btn { background-color: #f44336; }
+        .add-btn {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            background-color: #008CBA;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>內容管理</h1>
+        <table id="content-table">
+            <thead>
+                <tr>
+                    <th>類型</th>
+                    <th>內容</th>
+                    <th>標籤</th>
+                    <th>附註</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 內容將通過 JavaScript 動態添加 -->
+            </tbody>
+        </table>
+        <a href="#" class="add-btn" id="add-new-btn">新增內容</a>
+    </div>
+
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>編輯內容</h2>
+            <form id="edit-form">
+                <input type="hidden" id="edit-key">
+                <div class="form-group">
+                    <label for="edit-type">類型:</label>
+                    <input type="text" id="edit-type" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-content">內容:</label>
+                    <textarea id="edit-content" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="edit-tags">標籤 (用逗號分隔):</label>
+                    <input type="text" id="edit-tags">
+                </div>
+                <div class="form-group">
+                    <label for="edit-note">附註:</label>
+                    <textarea id="edit-note"></textarea>
+                </div>
+                <button type="submit">保存</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
